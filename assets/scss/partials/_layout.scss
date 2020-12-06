@@ -1,4 +1,4 @@
-/* SETUP CHILD | 1.0.0 | 201106 | assets/scss/partials/layout.scss
+/* SETUP CHILD | 1.0.0 | 201205 | assets/scss/partials/layout.scss
 ---------------------------------------------------------------------------------------------------- */
 
 /* Box Sizing
@@ -17,23 +17,81 @@ input[type="search"] {
 --------------------------------------------- */
 
 .wrap {
-    max-width: map-get( $breakpoints, 'desktop' );
-    margin: 0 auto;
-	padding-left:  ($grid-gap / 2);
-	padding-right: ($grid-gap / 2);
-	@include clearfix;
 
-	@include media("<=desktop") {
-		padding-left: $grid-gap;
-		padding-right: $grid-gap;
+	.full-width-content & {}
+	.content-sidebar & {}
+	.sidebar-content & {}
+	.archive & {}
+	.page & {}
+	.singular & {}
+	.single & {}
+	.content & {}
+
+}
+
+
+/* Content Sidebar
+--------------------------------------------- */
+
+$percent-100: 100%;
+$percent-sidebar: $sidebar-width * ((100% - $percent-100) / 100%);
+$percent-content: $content-width * ((100% - $percent-100) / 100%);
+
+.site-inner .wrap {
+
+	max-width: map-get( $breakpoints, 'medium' );
+
+	.full-width-content & {
+		max-width: map-get( $breakpoints, 'medium' );
+	}
+
+	.content-sidebar &,
+	.sidebar-content & {
+		max-width: map-get( $breakpoints, 'large' );
+	}
+
+	.content & {
+		max-width: map-get( $breakpoints, 'tablet' );		
+	}
+
+	.archive & {
+		max-width: map-get( $breakpoints, 'large' );
 	}
 }
 
-.site-inner {
+.content-area {
 
-	.singular.content & > .wrap {
-		max-width: map-get( $breakpoints, 'content-width' );
+	.content-sidebar &,
+	.sidebar-content & {
+
+		.site-main {
+			grid-area: layout-content;
+			//width: $percent-content;
+		}
+		.sidebar-primary {
+			grid-area: layout-sidebar;
+			//width: $percent-sidebar;
+		}
 	}
+	.content-sidebar &,
+	.sidebar-content & {
+		display: grid;
+		grid-column-gap: $grid-gap;
+	}
+	.content-sidebar & {
+		grid-template-columns: 1fr $sidebar-width;
+		grid-template-areas:
+		"layout-content layout-sidebar";
+	}
+	.sidebar-content & {
+		grid-template-columns: $sidebar-width 1fr;
+		grid-template-areas:
+		"layout-sidebar layout-content";
+	}
+}
+
+.footer-widgets .wrap {
+		max-width: map-get( $breakpoints, 'medium' );
 }
 
 /* Screen Reader Text
@@ -73,6 +131,7 @@ input[type="search"] {
 /* Sidebar Layouts
 --------------------------------------------- */
 
+/*
 @include media("<medium") {
 
 	.sidebar-primary {
@@ -86,18 +145,18 @@ input[type="search"] {
 
 		.site-main {
 			float: left;
-			width: 768px / 1168px * 100%;
+			width: 768px / 1024px * 100%;
 		}
 
 		.sidebar-primary {
 			float: right;
-			width: 335px / 1168px * 100%;
+			width: 224px / 1024px * 100%;
 		}
 
 		@supports( display: $grid ) {
 			.content-area {
 				display: grid;
-				grid-template-columns: 1fr 368px;
+				grid-template-columns: 1fr 224px;
 				grid-column-gap: $grid-gap;
 			}
 
@@ -114,6 +173,7 @@ input[type="search"] {
 		}
 	}
 }
+*/
 
 .sidebar-primary {
 

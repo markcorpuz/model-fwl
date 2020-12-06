@@ -1,4 +1,4 @@
-/* SETUP CHILD | 1.0.0 | 201106 | assets/scss/partials/archive.scss
+/* SETUP CHILD | 1.0.0 | 201205 | assets/scss/partials/archive.scss
 ---------------------------------------------------------------------------------------------------- */
 
 .archive {
@@ -57,6 +57,10 @@
 
 	& > *:last-child {
 		margin-bottom: 0;
+	}
+
+	.archive-title {
+		font-weight: 700;
 	}
 
 	.search-form {

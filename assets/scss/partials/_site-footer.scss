@@ -1,4 +1,4 @@
-/* SETUP CHILD | 1.0.0 | 201106 | assets/scss/partials/site-footer.scss
+/* SETUP CHILD | 1.0.0 | 201205 | assets/scss/partials/site-footer.scss
 ---------------------------------------------------------------------------------------------------- */
 
 /* Footer Widgets
@@ -6,19 +6,20 @@
 
 .footer-widgets {
 
-	position: relative;
+	padding: 1.5rem;
 
-	// SPACING
-	padding-top: 2rem;
-	padding-bottom: 1rem;
+	@include media(">large") {
+		padding: 3rem;
+	}
 
-	// BACKGROUND
+	.wrap {
+		margin-right: auto;
+		margin-left: auto;
+	}
+
 	background: brand-color( 'darkgrey' );
-
-	// COLOR
 	color: $white;
 
-	// LINK
 	a {
 		color: $white;
 		text-decoration: none;
@@ -29,7 +30,6 @@
 		}
 	}
 
-	// CONTENT
 	p {
 		> a {
 			text-decoration: underline;

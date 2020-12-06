@@ -1,14 +1,29 @@
-/* SETUP CHILD | 1.0.0 | 201106 | assets/scss/partials/site-inner.scss
+/* SETUP CHILD | 1.0.0 | 201205 | assets/scss/partials/site-inner.scss
 ---------------------------------------------------------------------------------------------------- */
 
 .site-inner {
 
-	padding: 2rem 0;
+	padding: 1.5rem;
 
-	@include media(">=tablet") {
-		padding: 4rem 0;
+	@include media(">large") {
+		padding: 3rem;
 	}
 
-	.wrap {}
+	.wrap {
+		.content-area {
+			.site-main {}
+			.sidebar {}
+			.sidebar.sidebar-primary {}
+		}
+	}
+
+	.wrap {
+		margin-right: auto;
+		margin-left: auto;
+
+		@include media("<=medium") {}
+		@include media("<=large") {}
+		@include media(">large") {}
+	}
 
 }
